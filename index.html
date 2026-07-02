@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rıza ❤️ Berra Aden</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:linear-gradient(180deg,#ffeef5,#fff);
+overflow-x:hidden;
+text-align:center;
+color:#ff4d88;
+}
+
+header{
+padding:60px 20px;
+}
+
+h1{
+font-size:42px;
+}
+
+p{
+font-size:18px;
+margin-top:15px;
+}
+
+.card{
+background:white;
+width:90%;
+max-width:600px;
+margin:30px auto;
+padding:25px;
+border-radius:20px;
+box-shadow:0 10px 30px rgba(255,105,180,.2);
+}
+
+#countdown{
+font-size:28px;
+font-weight:bold;
+margin-top:15px;
+}
+
+button{
+padding:15px 35px;
+border:none;
+border-radius:30px;
+background:#ff69b4;
+color:white;
+font-size:18px;
+cursor:pointer;
+margin-top:20px;
+transition:.3s;
+}
+
+button:hover{
+transform:scale(1.05);
+background:#ff4d88;
+}
+
+#letter{
+display:none;
+margin-top:20px;
+line-height:1.8;
+color:#555;
+}
+
+footer{
+margin:60px 0;
+font-size:20px;
+}
+
+.heart{
+position:fixed;
+top:-20px;
+color:#ff69b4;
+animation:fall linear forwards;
+}
+
+@keyframes fall{
+to{
+transform:translateY(110vh);
+opacity:0;
+}
+}
+</style>
+
+</head>
+<body>
+
+<header>
+<h1>Rıza ❤️ Berra Aden</h1>
+<p>12 Mayıs'ta başlayan hikâyemiz...</p>
+</header>
+
+<div class="card">
+<h2>⏳ Tanışalı</h2>
+<div id="countdown"></div>
+</div>
+
+<div class="card">
+<h2>💌 Sana Bir Mektup</h2>
+
+<button onclick="showLetter()">Mektubu Aç ❤️</button>
+
+<div id="letter">
+
+Sevgili Berra Aden,
+
+Bu satırları sana kalbimin en güzel yerinden yazıyorum.
+
+12 Mayıs'tan beri hayatımın en güzel hikâyesini seninle yaşamaya başladım.
+
+Belki henüz yan yana gelemedik...
+
+Ama bilmeni isterim ki seni düşünmediğim tek bir gün bile olmadı.
+
+Bir gün bu sayfaya birlikte çekildiğimiz ilk fotoğrafı ekleyeceğiz.
+
+O günü sabırsızlıkla bekliyorum.
+
+Seni çok seviyorum.
+
+❤️
+
+-Rıza
+
+</div>
+
+</div>
+
+<div class="card">
+<h2>🎵 Bizim Şarkımız</h2>
+
+<p>Düşler Sokağı</p>
+
+<p>(Şarkıyı birazdan ekleyeceğiz.)</p>
+
+</div>
+
+<footer>
+
+❤️ Sonsuza kadar...
+
+<br><br>
+
+Rıza ❤️ Berra Aden
+
+</footer>
+
+<script>
+
+function showLetter(){
+document.getElementById("letter").style.display="block";
+}
+
+const startDate=new Date("2026-05-12T00:00:00");
+
+function update(){
+
+const now=new Date();
+
+const diff=now-startDate;
+
+const days=Math.floor(diff/1000/60/60/24);
+
+const hours=Math.floor(diff/1000/60/60)%24;
+
+const minutes=Math.floor(diff/1000/60)%60;
+
+const seconds=Math.floor(diff/1000)%60;
+
+document.getElementById("countdown").innerHTML=
+days+" Gün "+hours+" Saat "+minutes+" Dakika "+seconds+" Saniye";
+
+}
+
+setInterval(update,1000);
+
+update();
+
+setInterval(()=>{
+
+const heart=document.createElement("div");
+
+heart.className="heart";
+
+heart.innerHTML="❤️";
+
+heart.style.left=Math.random()*100+"vw";
+
+heart.style.fontSize=(20+Math.random()*20)+"px";
+
+heart.style.animationDuration=(3+Math.random()*3)+"s";
+
+document.body.appendChild(heart);
+
+setTimeout(()=>heart.remove(),6000);
+
+},500);
+
+</script>
+
+</body>
+</html>
